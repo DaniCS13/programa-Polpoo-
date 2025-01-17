@@ -1,0 +1,34 @@
+{
+    "deliveryPoints": [
+        
+        {
+            "id": "00004720",
+            "deliveryNotes": [
+                {
+                    "deliveryNoteCode": "74545245",
+                    "kg": 1450.5,
+                    "volumen": 300.6,
+                    "package": 2,
+                    "deliveryNoteObservation": "Observaciones",
+                    "deliveryNoteOrderCode": "2013",
+                    "promptPayDiscountPercent": 22,
+                    "isDevolution": false,
+                    "isBill":true,
+                    "billType": 11,
+                    "products": [
+                        {
+                            "code": "PX-36",
+                            "name": "Manzana azul",
+                            "quantity": 20,
+                            "price": 0.50,
+                            "taxPercent": 21,
+                            "measure": "KGS",
+                            "lotCode": "11297091",
+                            "discountPercent": 10
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

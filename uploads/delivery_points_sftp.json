@@ -1,0 +1,27 @@
+{
+	"name": "DEBUG",
+	"description": "Rutas de DEBUG",
+	"dateSession": "2020-11-9",
+	"deliveryPoints": [
+		{
+			"id": "119029",
+			"name": "",
+			"address": "Pg. Sant Joan 6, 08009, Barcelona",
+			"deliveryZoneId": "",
+			"deliveryWindow": {
+				"start": 17700,
+				"end": 28000
+			},
+			"population": "Barcelona",
+			"demand": 12,
+			"volumetric": 0.89,
+			"postalCode": "08009",
+			"phoneNumber": "34666555666",
+			"email": "prueba@empr.com",
+			"deliveryType": "shipment",
+			"orderNumber": "P-4234",
+			"deliveryNotes": "Pedir llaves"
+		}
+		
+	]
+}

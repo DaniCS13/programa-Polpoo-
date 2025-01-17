@@ -1,0 +1,239 @@
+{
+  "type": "object",
+  "properties": {
+    "deliveryPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único del cliente."
+          },
+          "deliveryNotes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "deliveryNoteCode": {
+                  "type": "string",
+                  "description": "Número o código del albarán."
+                },
+                "kg": {
+                  "type": "number",
+                  "description": "Carga en kilos del albarán."
+                },
+                "volumen": {
+                  "type": "number",
+                  "description": "Carga en metros cúbicos del albarán."
+                },
+                "package": {
+                  "type": "integer",
+                  "description": "Número de bultos del albarán."
+                },
+                "deliveryNoteObservation": {
+                  "type": "string",
+                  "description": "Observaciones del albarán."
+                },
+                "deliveryNoteOrderCode": {
+                  "type": "string",
+                  "description": "Número del pedido referente al albarán."
+                },
+                "promptPayDiscountPercent": {
+                  "type": "number",
+                  "description": "Porcentaje de descuento a aplicar en el precio total del albarán."
+                },
+                "palets": {
+                  "type": "integer",
+                  "description": "Número de palets del albarán."
+                },
+                "sendDeliveryNoteCompanyId": {
+                  "type": "integer",
+                  "description": "Id de la compañía donde irá la información de los albaranes. *Sólo para multialmacén."
+                },
+                "showDeliveryNotePrice": {
+                  "type": "boolean",
+                  "description": "Si aparecerá el albarán con precios o sin precios."
+                },
+                "managementCost": {
+                  "type": "number",
+                  "description": "Coste de gestión del albarán."
+                },
+                "scannedCode": {
+                  "type": "string",
+                  "description": "Código de escaneo del albarán. (sólo con el módulo Paquetería)"
+                },
+                "isBill": {
+                  "type": "boolean",
+                  "description": "Si es true, esta información pasará a ser de factura. Si es false o no se envío este campo, será un albarán."
+                },
+                "billType": {
+                  "type": "integer",
+                  "description": "En caso de que isBill sea true y este campo contenga un 11, la factura se tendrá que cobrar, de lo contrario, la factura solo se tendrá que firmar."
+                },
+                "date": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "Fecha que aparecerá en el albarán."
+                },
+                "barCode": {
+                  "type": "string",
+                  "description": "Imagen en base64 del código de barras que aparecerá en el albarán."
+                },
+                "deliveryIdentifier": {
+                  "type": "string",
+                  "description": "Identificador de la entrega para asignación correcta del albarán. Vinculación con el mismo campo en rutas."
+                },
+                "documentStore": {
+                  "type": "string",
+                  "description": "Almacén del documento (sólo informativo)."
+                },
+                "documentType": {
+                  "type": "string",
+                  "description": "Tipo de documento (sólo informativo)."
+                },
+                "documentSeries": {
+                  "type": "string",
+                  "description": "Serie del documento (sólo informativo)."
+                },
+                "documentExercise": {
+                  "type": "string",
+                  "description": "Ejercicio del documento (sólo informativo)."
+                },
+                "companyAssociated": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "description": "Código de la compañía asociada."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Nombre de la compañía asociada."
+                    },
+                    "nif": {
+                      "type": "string",
+                      "description": "NIF de la compañía asociada."
+                    },
+                    "streetAddress": {
+                      "type": "string",
+                      "description": "Dirección de la compañía asociada."
+                    },
+                    "city": {
+                      "type": "string",
+                      "description": "Ciudad de la compañía asociada."
+                    },
+                    "province": {
+                      "type": "string",
+                      "description": "Provincia de la compañía asociada."
+                    },
+                    "zipCode": {
+                      "type": "string",
+                      "description": "Código postal de la compañía asociada."
+                    },
+                    "phone": {
+                      "type": "string",
+                      "pattern": "^(\\+34[- ]?|34[- ]?)?\\d{9}$",
+                      "description": "Número de teléfono de la compañía asociada."
+                    },
+                    "billingAddress": {
+                      "type": "string",
+                      "description": "Correo de facturación de la compañía asociada."
+                    }
+                  }
+                },
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "description": "Identificador del producto."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nombre del producto."
+                      },
+                      "quantity": {
+                        "type": "number",
+                        "description": "Cantidad del producto."
+                      },
+                      "price": {
+                        "type": "number",
+                        "description": "Precio del producto por medida."
+                      },
+                      "taxPercent": {
+                        "type": "integer",
+                        "description": "Impuesto sobre el Valor Añadido (IVA) del producto."
+                      },
+                      "measure": {
+                        "type": "string",
+                        "description": "Formato del producto."
+                      },
+                      "lotCode": {
+                        "type": "string",
+                        "description": "Identificador del lote al que pertenece el producto."
+                      },
+                      "discountPercent": {
+                        "type": "number",
+                        "description": "Descuento en porcentaje del producto."
+                      },
+                      "equivalencePercent": {
+                        "type": "number",
+                        "description": "Porcentaje del recargo de equivalencia del producto."
+                      },
+                      "measureQuantity": {
+                        "type": "number",
+                        "description": "Cantidad del producto referente a la medida."
+                      },
+                      "grossMass": {
+                        "type": "number",
+                        "description": "Peso bruto del producto."
+                      },
+                      "tare": {
+                        "type": "number",
+                        "description": "Tara del producto."
+                      },
+                      "netMass": {
+                        "type": "number",
+                        "description": "Peso neto del producto."
+                      },
+                      "observation": {
+                        "type": "string",
+                        "description": "Observaciones del producto."
+                      },
+                      "scannedCode": {
+                        "type": "string",
+                        "description": "Código de escaneo del bulto. (sólo con el módulo Paquetería)"
+                      },
+                      "supplierReference": {
+                        "type": "string",
+                        "description": "Proveedor del producto."
+                      }
+                    },
+                    "required": ["code", "name", "quantity", "price", "taxPercent", "measure"]
+                  }
+                },
+                "totalPrice": {
+                  "type": "number",
+                  "description": "Precio de la suma de todos los productos."
+                },
+                "isDevolution": {
+                  "type": "boolean",
+                  "description": "Marca si el albarán es de entrega o recogida. En caso de ser «True» será de recogida y en caso de ser «False» o no mandar la información, será de entrega."
+                }
+              },
+              "required": ["deliveryNoteCode"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": ["id", "deliveryNotes"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["deliveryPoints"],
+  "additionalProperties": false
+}

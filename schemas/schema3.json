@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+      "deliveryPoints": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string", "description": "Identificador único del cliente." },
+            "deliveryNotes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "deliveryNoteCode": { "type": "string" },
+                  "kg": { "type": "number" },
+                  "volumen": { "type": "number" },
+                  "package": { "type": "integer" },
+                  "deliveryNoteObservation": { "type": "string" }
+                },
+                "required": ["deliveryNoteCode"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["id", "deliveryNotes"],
+          "additionalProperties": false
+        }
+      },
+      "dateDeliveryStart": {
+        "type": "string",
+        "pattern": "^\\d{4}-\\d{1,2}-\\d{1,2}$"
+      }
+    },
+    "required": ["deliveryPoints"],
+    "additionalProperties": false
+  }
+  

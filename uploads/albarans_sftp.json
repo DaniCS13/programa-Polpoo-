@@ -1,0 +1,33 @@
+{
+    "deliveryPoints": [
+        {
+            "id": "119029",
+            "deliveryNotes": [
+                {
+                    "deliveryNoteCode": "45466770",
+                    "kg": 1450.5,
+                    "volumen": 300.6,
+                    "package": 2,
+                    "deliveryNoteObservation": "Observaciones",
+                    "deliveryNoteOrderCode": "2013",
+                    "promptPayDiscountPercent": 33,
+                    "isDevolution": false,
+                    "isBills": true,
+                    "billType": 11,
+                    "products": [
+                        {
+                            "code": "PX-34",
+                            "name": "Manzana Pink Pearl",
+                            "quantity": 23,
+                            "price": 0.21,
+                            "taxPercent": 21,
+                            "measure": "KGS",
+                            "lotCode": "11297090",
+                            "discountPercent": 20
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

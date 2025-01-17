@@ -1,0 +1,243 @@
+{
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Nombre de la importación (obligatorio)"
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Descripción de la importación (obligatorio)"
+      },
+      "dateSession": {
+        "type": "string",
+        "pattern": "^\\d{4}-\\d{1,2}-\\d{1,2}$",
+        "description": "Fecha en la que se genera el fichero (obligatorio)"
+      },
+      "deliveryPoints": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Identificador único del cliente (obligatorio)"
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Nombre del cliente (obligatorio)"
+            },
+            "address": {
+              "type": "string",
+              "description": "Dirección del cliente (obligatorio)"
+            },
+            "deliveryZoneId": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Zona de reparto a la que pertenece el cliente (obligatorio)"
+            },
+            "deliveryWindow": {
+              "type": "object",
+              "properties": {
+                "start": {
+                  "type": "integer",
+                  "description": "Hora en la que se puede empezar a repartir en un cliente (recomendado)"
+                },
+                "end": {
+                  "type": "integer",
+                  "description": "Hora en la que ya no se puede repartir en un cliente (recomendado)"
+                }
+              },
+              "additionalProperties": false
+            },
+            "nif": {
+              "type": "string",
+              "description": "NIF del cliente (recomendado)"
+            },
+            "population": {
+              "type": "string",
+              "description": "Población del cliente (recomendado)"
+            },
+            "demand": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Carga que ocupa el pedido de un cliente (>=0) (recomendado)"
+            },
+            "volumetric": {
+              "type": "number",
+              "description": "Volumen (metros cúbicos) que ocupa el pedido de un cliente (recomendado)"
+            },
+            "postalCode": {
+              "type": "string",
+              "description": "Código postal del cliente (recomendado)"
+            },
+            "phoneNumber": {
+              "type": "string",
+              "pattern": "^(\\+34[- ]?|34[- ]?)?\\d{9}$",
+              "description": "Número de teléfono del cliente (recomendado)"
+            },
+            "email": {
+              "type": "string",
+              "format": "email",
+              "description": "Correo electrónico del cliente (recomendado)"
+            },
+            "deliveryType": {
+              "type": "string",
+              "enum": ["shipment", "pickup"],
+              "description": "Tipo de servicio («shipment» = entrega // «pickup» = recogida) (recomendado)"
+            },
+            "orderNumber": {
+              "type": "string",
+              "description": "Número del pedido referente al punto de entrega (recomendado)"
+            },
+            "deliveryNotes": {
+              "type": "string",
+              "description": "Observaciones acerca de la entrega del pedido (recomendado)"
+            },
+            "service": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "Código de la especificación de servicio (obligatorio si se envía un servicio)"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Nombre de la especificación de servicio (obligatorio si se envía un servicio)"
+                }
+              },
+              "required": ["code", "name"],
+              "additionalProperties": false
+            },
+            "useHours": {
+              "type": "boolean",
+              "description": "Si es true, se utiliza el horario especificado en el fichero"
+            },
+            "useAddress": {
+              "type": "boolean",
+              "description": "Si es true, se usa la dirección especificada en el fichero"
+            },
+            "box": {
+              "type": "integer",
+              "description": "Número de cajas del pedido de un cliente (recomendado)"
+            },
+            "serviceTime": {
+              "type": "integer",
+              "description": "Tiempo estimado para realizar la descarga en el cliente (segundos) (recomendado)"
+            },
+            "idERP": {
+              "type": "string",
+              "description": "Identificador único del vehículo en el ERP (sólo para la automatización completa)"
+            },
+            "leadTime": {
+              "type": "integer",
+              "description": "Tiempo de entrega antes de la hora de apertura del cliente (segundos)"
+            },
+            "sendDeliveryNoteMail": {
+              "type": "boolean",
+              "description": "Si es true, se mandará el albarán por correo electrónico"
+            },
+            "deliveryIdentifier": {
+              "type": "string",
+              "description": "Identificador de la entrega para asignación correcta del albarán"
+            },
+            "allowDelayTime": {
+              "type": "boolean",
+              "description": "Si es true, se activará el tiempo de retraso para este cliente"
+            },
+            "delayType": {
+              "type": "string",
+              "description": "Nombre del tiempo de retraso"
+            },
+            "warehouseCode": {
+              "type": "string",
+              "description": "Código del almacén de destino (sólo para la automatización completa)"
+            },
+            "deliveryZoneSpecification": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "Código de la especificación de ruta (obligatorio si se envía una esp. de ruta)"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Nombre de la especificación de ruta (obligatorio si se envía una esp. de ruta)"
+                }
+              },
+              "required": ["code", "name"],
+              "additionalProperties": false
+            },
+            "activateDeliverySchedule": {
+              "type": "boolean",
+              "description": "Si es true, se activará la especificación horaria por días y franjas del cliente"
+            },
+            "deliveryScheduleDay": {
+              "type": "object",
+              "properties": {
+                "isActive": {
+                  "type": "boolean",
+                  "description": "Si es true, este día estará abierto"
+                },
+                "intDay": {
+                  "type": "integer",
+                  "enum": [1, 2, 3, 4, 5, 6, 7],
+                  "description": "Día de la semana (1 = Lunes, 2 = Martes...)"
+                },
+                "fixedDelivery": {
+                  "type": "boolean",
+                  "description": "Si es true, este día tendrá entrega fija"
+                },
+                "hours": {
+                  "type": "object",
+                  "properties": {
+                    "timeStart": {
+                      "type": "integer",
+                      "description": "Hora de inicio de la franja horaria de entrega"
+                    },
+                    "timeEnd": {
+                      "type": "integer",
+                      "description": "Hora de finalización de la franja horaria de entrega"
+                    }
+                  },
+                  "required": ["timeStart", "timeEnd"]
+                }
+              },
+              "required": ["isActive", "intDay", "fixedDelivery", "hours"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["id", "name", "address", "deliveryZoneId"],
+          "additionalProperties": false
+        }
+      },
+      "asignationDate": {
+        "type": "string",
+        "pattern": "^\\d{4}-\\d{1,2}-\\d{1,2}$",
+        "description": "Fecha de la asignación automática (sólo para la automatización completa)"
+      },
+      "vehicle": {
+        "type": "object",
+        "properties": {
+          "idERP": {
+            "type": "string",
+            "description": "Identificador único del vehículo en el ERP (sólo para la automatización completa)"
+          },
+          "userERP": {
+            "type": "string",
+            "description": "Identificador único del usuario en el ERP (sólo para la automatización completa)"
+          }
+        },
+        "required": ["idERP", "userERP"],
+        "additionalProperties": false
+      }
+    },
+    "required": ["name", "description", "dateSession", "deliveryPoints"],
+    "additionalProperties": false
+  }
+  
+  

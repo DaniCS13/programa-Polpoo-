@@ -1,0 +1,27 @@
+{
+	"name": "Ruta_Programa3",
+	"description": "Rutas del lunes",
+	"dateSession": "2020-11-9",
+	"deliveryPoints": [
+		{
+			"id": "119029",
+			"name": "Empresa SL",
+			"address": "Pg. Sant Joan 6, 08009, Barcelona",
+			"deliveryZoneId": "BCN-02",
+			"deliveryWindow": {
+				"start": 17700,
+				"end": 28000
+			},
+			"population": "Barcelona",
+			"demand": 12,
+			"volumetric": 0.89,
+			"postalCode": "08009",
+                        "nif": "F62789012",
+			"phoneNumber": "34666555666",
+			"email": "prueba@empr.com",
+			"deliveryType": "shipment",
+			"orderNumber": "P-4234",
+			"deliveryNotes": "Pedir llaves"
+		}
+	]
+}
