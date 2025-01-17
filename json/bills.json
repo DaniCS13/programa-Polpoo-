@@ -1,0 +1,10 @@
+{
+    "bills": [{
+        "deliveryPointId": "1050",
+        "code": "119029",
+        "total": 221.30,
+        "archiveUrl": "https://via.placeholder.com/119029.pdf",
+        "status": 1
+    }
+    ]
+}
